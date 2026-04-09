@@ -43,7 +43,7 @@ function App() {
       <section className="hero" style={{ backgroundImage: `url(${heroBg})` }}>
         <div className="hero-overlay">
           <div className="hero-content">
-            <h2>Escritório De Contabilidade Em<br /> Pouso Alegre</h2>
+            <h2>Escritório De Contabilidade Em<br /> Pouso Alegre MG</h2>
             <p>
               Se você busca um Escritório de Contabilidade em Pouso Alegre que ofereça soluções personalizadas para o seu negócio, você está no lugar certo. Com uma equipe experiente e especializada, estamos prontos para ajudar sua empresa a crescer com segurança e eficiência.
             </p>
