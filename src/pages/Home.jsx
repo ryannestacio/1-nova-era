@@ -3,7 +3,7 @@ import heroBg from '../assets/close-up-detail-professional-serious-accountant-si
 import card1Img from '../assets/colegas-concentrados-lendo-adesivos-na-parede-de-vidro_74855-14237.jpg';
 import card2Img from '../assets/empresario-trabalhando-no-escritorio_23-2148377745.jpg';
 import card3Img from '../assets/homem-de-negocios-trabalhando-em-um-desktop-de-escritorio_23-2148194704.jpg';
-import facadeImg from '../assets/fachada-indaiacont-1086x1536.jpeg';
+import facadeImg from '../assets/fachada-novaera.jpeg';
 import diferenciaisBg from '../assets/imagem5.jpg';
 import fachadaTemporaria from '../assets/fachada-temporaria.png';
 import parallaxBg from '../assets/mulher-na-contabildade.jpg';
