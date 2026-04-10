@@ -6,9 +6,11 @@ import Home from './pages/Home';
 import ServicePage from './pages/ServicePage';
 import './App.css';
 
+const basename = import.meta.env.BASE_URL;
+
 function App() {
   return (
-    <Router>
+    <Router basename={basename}>
       <div className="app">
         <Header />
         <Routes>
