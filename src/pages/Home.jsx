@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 import heroBg from '../assets/close-up-detail-professional-serious-accountant-sitting-light-office-checking-company-finance-profits-calculator.jpg';
 import card1Img from '../assets/colegas-concentrados-lendo-adesivos-na-parede-de-vidro_74855-14237.jpg';
 import card2Img from '../assets/empresario-trabalhando-no-escritorio_23-2148377745.jpg';
@@ -7,7 +8,7 @@ import facadeImg from '../assets/fachada-novaera.jpeg';
 import diferenciaisBg from '../assets/imagem5.jpg';
 import fachadaTemporaria from '../assets/fachada-temporaria.png';
 import parallaxBg from '../assets/mulher-na-contabildade.jpg';
-
+import AnimatedNumber from '../components/AnimatedNumber';
 const faqs = [
   {
     question: "O que faz um escritório de contabilidade?",
@@ -93,7 +94,9 @@ export default function Home() {
             <div className="card-content">
               <h3>Abertura de Empresas</h3>
               <p>Iniciar um novo negócio exige mais do que uma ideia inovadora; é fundamental garantir que todo o processo de abertura seja realizado corretamente em todas as esferas existentes. Nós cuidamos de todas as etapas burocráticas, desde a escolha do tipo societário até o registro nos devidos órgãos competentes, para que você possa se preocupar apenas com o desenvolvimento do seu empreendimento.</p>
-              <button className="btn-secondary">MAIS ABERTURA DE EMPRESAS &gt;</button>
+              <Link to="/servicos/abertura-de-empresas" style={{ textDecoration: 'none' }}>
+                <button className="btn-secondary">MAIS ABERTURA DE EMPRESAS &gt;</button>
+              </Link>
             </div>
           </div>
 
@@ -102,7 +105,9 @@ export default function Home() {
             <div className="card-content">
               <h3>Regularização de Empresas</h3>
               <p>Manter sua empresa em conformidade com as normas legais é crucial para evitar problemas futuros. Se a sua empresa está enfrentando alguma pendência ou irregularidade, ou se precisa atualizar alguma informação junto aos órgãos competentes, nossa equipe está pronta para realizar a regularização necessária, garantindo que sua operação continue de forma segura e dentro da lei.</p>
-              <button className="btn-secondary">MAIS REGULARIZAÇÃO DE EMPRESAS &gt;</button>
+              <Link to="/servicos/regularizacao-de-empresas" style={{ textDecoration: 'none' }}>
+                <button className="btn-secondary">MAIS REGULARIZAÇÃO DE EMPRESAS &gt;</button>
+              </Link>
             </div>
           </div>
 
@@ -111,7 +116,9 @@ export default function Home() {
             <div className="card-content">
               <h3>Imposto de Renda</h3>
               <p>A declaração de imposto de renda, tanto para pessoas físicas quanto jurídicas, é uma das obrigações mais importantes e que requer atenção aos detalhes. Com nosso suporte, você terá a certeza de que todas as informações serão declaradas corretamente, aproveitando as deduções e benefícios fiscais disponíveis, e evitando qualquer tipo de penalidade futura.</p>
-              <button className="btn-secondary">MAIS IMPOSTO DE RENDA &gt;</button>
+              <Link to="/servicos/imposto-de-renda" style={{ textDecoration: 'none' }}>
+                <button className="btn-secondary">MAIS IMPOSTO DE RENDA &gt;</button>
+              </Link>
             </div>
           </div>
         </div>
@@ -224,19 +231,19 @@ export default function Home() {
         <div className="container stats-container">
           <div className="stats-card">
             <div className="stat-item">
-              <h4>+400</h4>
+              <h4><AnimatedNumber target={400} /></h4>
               <span>Clientes Satisfeitos</span>
             </div>
             <div className="stat-item">
-              <h4>+600</h4>
+              <h4><AnimatedNumber target={600} /></h4>
               <span>Declarações Entregues</span>
             </div>
             <div className="stat-item">
-              <h4>+30</h4>
+              <h4><AnimatedNumber target={30} /></h4>
               <span>Cidades Atendidas</span>
             </div>
             <div className="stat-item">
-              <h4>+20</h4>
+              <h4><AnimatedNumber target={20} /></h4>
               <span>Anos de Experiência</span>
             </div>
           </div>

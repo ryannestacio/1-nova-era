@@ -1,29 +1,43 @@
-import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
-import { FaChevronDown, FaChevronRight } from 'react-icons/fa';
+import React, { useState, useEffect } from 'react';
+import { Link, useLocation } from 'react-router-dom';
+import { FaChevronDown, FaChevronRight, FaBars, FaTimes } from 'react-icons/fa';
 
 export default function Header() {
   const [hidden, setHidden] = useState(false);
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const location = useLocation();
 
-  const handleMenuClick = () => setHidden(true);
+  // Close mobile menu when route changes
+  useEffect(() => {
+    setIsMobileMenuOpen(false);
+  }, [location]);
+
+  const handleMenuClick = () => {
+    setHidden(true);
+  };
   const handleMenuEnter = () => setHidden(false);
 
   return (
     <header className="header">
       <div className="header-container">
         <div className="logo">
-          <Link to="/" style={{textDecoration:'none', color:'inherit', display:'flex', flexDirection:'column'}}>
+          <Link to="/" style={{ textDecoration: 'none', color: 'inherit', display: 'flex', flexDirection: 'column' }}>
             <div className="logo-top">
-              <span className="logo-box">Nova</span><span className="logo-text">Era - Teste</span>
+              <span className="logo-box">Nova</span><span className="logo-text">Era</span>
             </div>
-            <span className="logo-sub">Assessoria Contábil e Empresarial - Teste de repositório</span>
+            <span className="logo-sub">Assessoria Contábil e Empresarial</span>
           </Link>
         </div>
-        <nav className="navbar">
+        
+        <div className="mobile-menu-icon" onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}>
+          {isMobileMenuOpen ? <FaTimes /> : <FaBars />}
+        </div>
+
+        <nav className={`navbar ${isMobileMenuOpen ? 'mobile-open' : ''}`}>
           <ul>
             <li><Link to="/" className="active">HOME</Link></li>
             <li className="dropdown" onMouseEnter={handleMenuEnter}>
-              <a style={{cursor:'pointer'}}>SERVIÇOS <FaChevronDown className="dropdown-icon" /></a>
+              <a style={{ cursor: 'pointer' }}>SERVIÇOS <FaChevronDown className="dropdown-icon" /></a>
               <ul className={`dropdown-menu ${hidden ? 'hidden' : ''}`} onClick={handleMenuClick}>
                 <li><Link to="/servicos/abertura-de-empresas">ABERTURA DE EMPRESAS EM POUSO ALEGRE</Link></li>
                 <li><Link to="/servicos/regularizacao-de-empresas">REGULARIZAÇÃO DE EMPRESAS</Link></li>
@@ -35,7 +49,7 @@ export default function Header() {
               </ul>
             </li>
             <li className="dropdown" onMouseEnter={handleMenuEnter}>
-              <a style={{cursor:'pointer'}}>ASSESSORIA CONTÁBIL <FaChevronDown className="dropdown-icon" /></a>
+              <a style={{ cursor: 'pointer' }}>ASSESSORIA CONTÁBIL <FaChevronDown className="dropdown-icon" /></a>
               <ul className={`dropdown-menu ${hidden ? 'hidden' : ''}`} onClick={handleMenuClick}>
                 <li><Link to="/assessoria/mei">CONTABILIDADE PARA MEI</Link></li>
                 <li><Link to="/assessoria/pequenas-empresas">CONTABILIDADE PARA PEQUENAS EMPRESAS</Link></li>
@@ -43,7 +57,7 @@ export default function Header() {
                 <li><Link to="/assessoria/comercios">CONTABILIDADE PARA COMÉRCIOS</Link></li>
                 <li><Link to="/assessoria/industrias">CONTABILIDADE PARA INDÚSTRIAS</Link></li>
                 <li className="has-submenu">
-                  <a style={{cursor:'pointer'}}>CONTABILIDADE PARA PROFISSIONAIS LIBERAIS <FaChevronRight className="submenu-icon" /></a>
+                  <a style={{ cursor: 'pointer' }}>CONTABILIDADE PARA PROFISSIONAIS LIBERAIS <FaChevronRight className="submenu-icon" /></a>
                   <ul className="submenu">
                     <li><Link to="/assessoria/medicos">CONTABILIDADE PARA MÉDICOS</Link></li>
                     <li><Link to="/assessoria/advogados">CONTABILIDADE PARA ADVOGADOS</Link></li>
@@ -52,7 +66,7 @@ export default function Header() {
                   </ul>
                 </li>
                 <li className="has-submenu">
-                  <a style={{cursor:'pointer'}}>CONTABILIDADE PARA NEGÓCIOS DIGITAIS <FaChevronRight className="submenu-icon" /></a>
+                  <a style={{ cursor: 'pointer' }}>CONTABILIDADE PARA NEGÓCIOS DIGITAIS <FaChevronRight className="submenu-icon" /></a>
                   <ul className="submenu">
                     <li><Link to="/assessoria/youtubers">CONTABILIDADE PARA YOUTUBERS</Link></li>
                     <li><Link to="/assessoria/produtores-afiliados">CONTABILIDADE PARA PRODUTORES E AFILIADOS</Link></li>

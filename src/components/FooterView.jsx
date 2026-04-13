@@ -1,4 +1,5 @@
 import React from 'react';
+import { useLocation, Link } from 'react-router-dom';
 import { FaInstagram, FaFacebookF, FaGoogle } from 'react-icons/fa';
 import googleLogoBase from '../assets/Google_2015_logo.svg.png';
 import googleIcon from '../assets/google-logo.png';
@@ -11,9 +12,14 @@ const testimonials = Array.from({ length: 10 }, (_, i) => ({
 }));
 
 export default function FooterView() {
+  const location = useLocation();
+  const hideTestimonials = location.pathname === '/contato' || location.pathname === '/escritorio';
+
   return (
     <>
-      <section className="testimonials-section">
+      {!hideTestimonials && (
+        <>
+          <section className="testimonials-section">
         <div className="container">
           <div className="testimonials-header">
             <span>DEPOIMENTOS</span>
@@ -80,6 +86,8 @@ export default function FooterView() {
           </button>
         </div>
       </section>
+        </>
+      )}
 
       <footer className="footer">
         <div className="container footer-container">
@@ -103,11 +111,11 @@ export default function FooterView() {
           <div className="footer-col footer-col-links">
             <h4>MAPA DO SITE</h4>
             <ul>
-              <li><a href="#">HOME</a></li>
-              <li><a href="#">QUEM SOMOS</a></li>
-              <li><a href="#">SERVICOS</a></li>
-              <li><a href="#">ASSESSORIA CONTÁBIL</a></li>
-              <li><a href="#">CONTATO</a></li>
+              <li><Link to="/" style={{ color: 'inherit', textDecoration: 'none' }}>HOME</Link></li>
+              <li><Link to="/escritorio" style={{ color: 'inherit', textDecoration: 'none' }}>QUEM SOMOS</Link></li>
+              <li><Link to="/" style={{ color: 'inherit', textDecoration: 'none' }}>SERVICOS</Link></li>
+              <li><Link to="/" style={{ color: 'inherit', textDecoration: 'none' }}>ASSESSORIA CONTÁBIL</Link></li>
+              <li><Link to="/contato" style={{ color: 'inherit', textDecoration: 'none' }}>CONTATO</Link></li>
             </ul>
           </div>
 
